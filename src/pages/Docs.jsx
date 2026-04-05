@@ -44,13 +44,13 @@ function Docs() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="max-w-4xl mx-auto px-6 py-20"
+      className="max-w-4xl mx-auto px-6 pt-12 pb-20"
     >
       <div className="text-center mb-16">
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-[32px] bg-[#D0BCFF]/10 border border-[#D0BCFF]/20 mb-6 shadow-2xl">
-           <FaBook className="text-4xl text-[#D0BCFF]" />
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#D0BCFF]/10 border border-[#D0BCFF]/20 text-[#D0BCFF] text-[10px] font-black uppercase tracking-[0.2em] mb-12">
+           <FaBook /> Documentation
         </div>
-        <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">Professional <br/> <span className="text-[#D0BCFF]">Documentation</span>.</h1>
+        <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">Get Started <br/> with <span className="text-[#D0BCFF]">AlgoCommit</span>.</h1>
       </div>
 
       <div className="space-y-10">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaHeart, FaBug, FaCommentAlt, FaUsers, FaGithub, FaExternalLinkAlt, FaCode, FaShieldAlt, FaRocket, FaStar, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import { GITHUB_REPO_URL, X_URL, GMAIL_URL } from '../constants/links';
 
 function About() {
   const communityCards = [
@@ -37,10 +38,13 @@ function About() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="max-w-6xl mx-auto px-6 py-20"
+      className="max-w-6xl mx-auto px-6 pt-12 pb-20"
     >
       {/* Hero / Motto Section */}
       <div className="text-center mb-20">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#D0BCFF]/10 border border-[#D0BCFF]/20 text-[#D0BCFF] text-[10px] font-black uppercase tracking-[0.2em] mb-10">
+           <FaUsers /> About Us
+        </div>
         <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
           Built by <span className="text-[#D0BCFF]">Developer</span> <br/> for Developer.
         </h1>
@@ -119,11 +123,11 @@ function About() {
                  <a href="https://github.com/Pabitra-Sahoo" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-8 py-3 rounded-2xl bg-white/5 hover:bg-white/10 transition-all border border-white/5 font-black text-[#CAC4D0] active:scale-95 shadow-sm">
                    <FaGithub /> GitHub
                  </a>
-                 <a href="mailto:sahoopabitra596@gmail.com" className="flex items-center gap-3 px-8 py-3 rounded-2xl bg-[#F2B8B5]/10 hover:bg-[#F2B8B5]/20 transition-all border border-[#F2B8B5]/20 font-black text-[#F2B8B5] active:scale-95 shadow-sm">
+                 <a href={GMAIL_URL} className="flex items-center gap-3 px-8 py-3 rounded-2xl bg-[#F2B8B5]/10 hover:bg-[#F2B8B5]/20 transition-all border border-[#F2B8B5]/20 font-black text-[#F2B8B5] active:scale-95 shadow-sm">
                    <FaEnvelope /> Gmail
                  </a>
-                 <a href="https://x.com/Oceaneyes_02" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-8 py-3 rounded-2xl bg-[#D0BCFF]/10 hover:bg-[#D0BCFF]/20 transition-all border border-[#D0BCFF]/20 font-black text-[#D0BCFF] active:scale-95 shadow-sm">
-                   <FaTwitter /> Twitter / X
+                 <a href={X_URL} target="_blank" rel="noreferrer" className="flex items-center gap-3 px-8 py-3 rounded-2xl bg-[#D0BCFF]/10 hover:bg-[#D0BCFF]/20 transition-all border border-[#D0BCFF]/20 font-black text-[#D0BCFF] active:scale-95 shadow-sm">
+                   <FaTwitter /> Twitter
                  </a>
               </div>
            </div>

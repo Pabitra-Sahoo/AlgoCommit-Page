@@ -4,8 +4,9 @@ import {
   FaGithub, FaSyncAlt, FaShieldAlt, FaChartLine, FaTerminal, FaCode, 
   FaCheckCircle, FaLaptopCode, FaGlobe, FaChevronRight, FaLock, FaChevronLeft,
   FaFire, FaTrophy, FaCog, FaHistory, FaCheck, FaTrash, FaSignOutAlt, FaRocket, 
-  FaEdit, FaRegClock, FaLayerGroup, FaSearch, FaTwitter, FaLinkedin, FaBug, FaDatabase
+  FaEdit, FaRegClock, FaLayerGroup, FaSearch, FaTwitter, FaLinkedin, FaBug, FaDatabase, FaCommentAlt
 } from 'react-icons/fa';
+import { CHROME_STORE_URL, GITHUB_REPO_URL } from '../constants/links';
 
 const UI_MOCKS = [
   {
@@ -272,10 +273,10 @@ function Home() {
             Automatically capture your solutions from LeetCode, GeeksForGeeks, & Codeforces. Build your commit graph, and track your streak.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
-            <button className="bg-[#D0BCFF] text-[#381E72] px-8 py-4 rounded-full font-black text-lg shadow-[0_0_30px_rgba(208,188,255,0.25)] hover:scale-[1.02] transition-transform active:scale-[0.98] cursor-pointer">
+            <a href={CHROME_STORE_URL} target="_blank" rel="noreferrer" className="bg-[#D0BCFF] text-[#381E72] px-8 py-4 rounded-full font-black text-lg shadow-[0_0_30px_rgba(208,188,255,0.25)] hover:scale-[1.02] transition-transform active:scale-[0.98] cursor-pointer inline-flex items-center justify-center">
               Add to Browser
-            </button>
-            <a href="https://github.com/Pabitra-Sahoo/AlgoCommit" target="_blank" rel="noreferrer" className="bg-white/5 px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all flex items-center justify-center gap-3 border border-white/5">
+            </a>
+            <a href={GITHUB_REPO_URL} target="_blank" rel="noreferrer" className="bg-white/5 px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all flex items-center justify-center gap-3 border border-white/5">
               <FaGithub className="text-xl" /> Repository
             </a>
           </div>
@@ -339,6 +340,9 @@ function Home() {
       {/* Features Heading & Section */}
       <section id="features" className="py-24 px-6 md:px-12 max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-20">
+           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#D0BCFF]/10 border border-[#D0BCFF]/20 text-[#D0BCFF] text-[10px] font-black uppercase tracking-[0.2em] mb-10">
+              <FaLayerGroup /> Features
+           </div>
            <h3 className="text-4xl md:text-6xl font-black italic">Sync, Track, Level Up.</h3>
         </div>
 
@@ -480,6 +484,9 @@ function Home() {
             <div className="absolute top-0 right-0 p-10">
                <FaBug className="text-7xl text-[#F2B8B5] opacity-5 -rotate-12" />
             </div>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#D0BCFF]/10 border border-[#D0BCFF]/20 text-[#D0BCFF] text-[10px] font-black uppercase tracking-[0.2em] mb-10">
+               <FaCommentAlt /> Feedback
+            </div>
             <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight">Help us build <br/> the future.</h2>
             <p className="text-lg text-[#938F99] mb-12 max-w-2xl mx-auto leading-relaxed">
                AlgoCommit is a community project. Found a bug on a platform? Have a feature request? Let's build it together.
@@ -519,9 +526,9 @@ function Home() {
           </div>
 
           <div className="pt-8 mb-12">
-            <button className="bg-[#D0BCFF] text-[#381E72] px-12 py-5 rounded-full font-black text-xl shadow-[0_0_40px_rgba(208,188,255,0.3)] hover:scale-105 transition-all active:scale-95 cursor-pointer">
+            <a href={CHROME_STORE_URL} target="_blank" rel="noreferrer" className="bg-[#D0BCFF] text-[#381E72] px-12 py-5 rounded-full font-black text-xl shadow-[0_0_40px_rgba(208,188,255,0.3)] hover:scale-105 transition-all active:scale-95 cursor-pointer inline-flex items-center justify-center">
               Download AlgoCommit Today
-            </button>
+            </a>
           </div>
         </div>
       </section>
