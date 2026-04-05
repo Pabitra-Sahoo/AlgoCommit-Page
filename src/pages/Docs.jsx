@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaBook, FaPuzzlePiece, FaUserSecret, FaRocket } from 'react-icons/fa';
+import { FaBook, FaPuzzlePiece, FaUserSecret, FaRocket, FaBug } from 'react-icons/fa';
 
 function Docs() {
   const sections = [
@@ -41,28 +41,37 @@ function Docs() {
 
   return (
     <motion.div 
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       className="max-w-4xl mx-auto px-6 py-20"
     >
-      <div className="flex items-center justify-center gap-4 mb-12">
-        <FaBook className="text-4xl text-[#D0BCFF]" />
-        <h1 className="text-4xl md:text-5xl font-black">Documentation</h1>
+      <div className="text-center mb-16">
+        <div className="inline-flex items-center justify-center w-20 h-20 rounded-[32px] bg-[#D0BCFF]/10 border border-[#D0BCFF]/20 mb-6 shadow-2xl">
+           <FaBook className="text-4xl text-[#D0BCFF]" />
+        </div>
+        <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">Professional <br/> <span className="text-[#D0BCFF]">Documentation</span>.</h1>
       </div>
 
-      <div className="space-y-12">
+      <div className="space-y-10">
         {sections.map((section, idx) => (
-          <div key={idx} className="glass p-8 rounded-[24px] border border-[#49454F]/50">
-            <div className={`flex items-center gap-3 mb-6 text-2xl font-bold ${section.color}`}>
-              {section.icon}
+          <div key={idx} className="glass p-10 rounded-[40px] border border-white/5 hover:border-[#D0BCFF]/20 transition-all shadow-xl relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity text-8xl">
+               {section.icon}
+            </div>
+            <div className={`flex items-center gap-5 mb-10 text-2xl md:text-3xl font-black ${section.color}`}>
+              <div className="w-14 h-14 rounded-[24px] bg-white/5 border border-white/5 flex items-center justify-center text-2xl shadow-inner">
+                {section.icon}
+              </div>
               <h2>{section.title}</h2>
             </div>
-            <ul className="space-y-4">
+            <ul className="space-y-8">
               {section.content.map((item, iIdx) => (
-                <li key={iIdx} className="flex gap-4 text-[#E6E1E5] leading-relaxed">
-                  <span className="text-[#49454F] font-bold">{iIdx + 1}.</span>
-                  {item}
+                <li key={iIdx} className="flex gap-6 text-[#E6E1E5]/90 leading-relaxed text-lg font-medium">
+                   <div className="w-10 h-10 rounded-full bg-[#D0BCFF]/10 text-[#D0BCFF] flex items-center justify-center text-base font-black shrink-0 border border-[#D0BCFF]/20 shadow-md">
+                      {iIdx + 1}
+                   </div>
+                   <span className="pt-1.5">{item}</span>
                 </li>
               ))}
             </ul>
@@ -70,9 +79,22 @@ function Docs() {
         ))}
       </div>
       
-      <div className="mt-16 glass p-6 rounded-xl border border-[#D0BCFF]/30 text-center">
-         <p className="text-[#D0BCFF] font-bold">Have a technical issue or feature request?</p>
-         <a href="https://github.com/Pabitra-Sahoo/AlgoCommit/issues" className="text-sm text-[#938F99] hover:underline block mt-2">Open an issue on GitHub</a>
+      <div className="mt-24 glass p-10 md:p-16 rounded-[56px] border border-[#D0BCFF]/20 text-center relative overflow-hidden">
+         <div className="absolute inset-0 bg-[#D0BCFF]/5 blur-[100px] rounded-full"></div>
+         <div className="relative">
+            <h3 className="text-2xl md:text-3xl font-black mb-4">Have a technical issue?</h3>
+            <p className="text-[#938F99] text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+              AlgoCommit is fully open-source. Found a bug on a platform or have a feature request? Join our building process on GitHub.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-5 justify-center">
+               <a href="https://github.com/Pabitra-Sahoo/AlgoCommit/issues/new?template=bug_report.yml&title=Bug:%20" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-10 py-5 rounded-2xl bg-[#F2B8B5]/10 text-[#F2B8B5] border border-[#F2B8B5]/20 hover:bg-[#F2B8B5]/20 transition-all font-black text-lg uppercase tracking-tight active:scale-95">
+                  <FaBug /> Report a Bug
+               </a>
+               <a href="https://github.com/Pabitra-Sahoo/AlgoCommit/issues/new?template=feature_request.yml&title=Feature:%20" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-10 py-5 rounded-2xl bg-[#D0BCFF]/10 text-[#D0BCFF] border border-[#D0BCFF]/20 hover:bg-[#D0BCFF]/20 transition-all font-black text-lg uppercase tracking-tight active:scale-95">
+                  <FaRocket /> Feedback
+               </a>
+            </div>
+         </div>
       </div>
     </motion.div>
   );
