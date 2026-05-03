@@ -9,194 +9,6 @@ import {
 import { SiLeetcode, SiGeeksforgeeks, SiCodeforces } from 'react-icons/si';
 import { CHROME_STORE_URL, GITHUB_REPO_URL } from '../constants/links';
 
-const UI_MOCKS = [
-  {
-    id: 'dashboard',
-    title: 'Main Dashboard',
-    description: 'Real-time stats and activity flow.',
-    content: (
-      <div className="w-full h-full bg-[#1A1A1E] p-6 md:p-8 flex flex-col border border-white/5 relative overflow-hidden text-sm">
-        <div className="flex justify-between items-center mb-6">
-          <div className="flex items-center gap-2">
-            <div className="relative flex items-center justify-center w-5 h-5 rounded-full bg-[#141218] border border-[#D0BCFF]/30">
-               <span className="w-1.5 h-1.5 rounded-full bg-[#D0BCFF] animate-pulse shadow-[0_0_8px_#D0BCFF]"></span>
-            </div>
-            <span className="font-bold text-white text-[13px]">AlgoCommit</span>
-          </div>
-          <div className="flex items-center gap-3 opacity-40">
-            <FaGithub className="text-base" />
-            <FaCog className="text-base" />
-          </div>
-        </div>
-
-        <div className="bg-[#252529] rounded-[22px] p-5 mb-4 border border-white/5 relative shadow-xl">
-          <div className="flex justify-between items-center mb-4">
-             <div className="w-9 h-9 rounded-full bg-[#381E72] flex items-center justify-center border border-[#D0BCFF]/30">
-                <div className="w-5 h-5 rounded-full bg-[#D0BCFF]/20 flex items-center justify-center">
-                   <div className="w-1.5 h-1.5 rounded-full bg-[#D0BCFF]"></div>
-                </div>
-             </div>
-             <div className="flex items-center gap-3">
-                <div className="flex bg-[#381E72]/20 px-2.5 py-1 rounded-lg border border-[#D0BCFF]/10 gap-2.5">
-                   <FaTwitter className="text-white/30 text-[10px]" />
-                   <div className="w-px h-2.5 bg-white/10"></div>
-                   <FaLinkedin className="text-white/30 text-[10px]" />
-                </div>
-                <div className="flex items-center gap-1.5">
-                   <FaShieldAlt className="text-[#D0BCFF] opacity-30 text-xs" />
-                   <span className="text-xl font-black text-white">8</span>
-                   <span className="text-[9px] text-white/30 uppercase font-black tracking-widest">Total Solved</span>
-                </div>
-             </div>
-          </div>
-          <div className="h-1.5 w-full bg-[#381E72] rounded-full flex overflow-hidden">
-             <div className="w-[40%] bg-[#FFA116] h-full"></div>
-             <div className="w-[60%] bg-[#b8f5a6] h-full"></div>
-          </div>
-          <div className="grid grid-cols-4 gap-2 mt-4">
-             {['Basic', 'Easy', 'Medium', 'Hard'].map((label, i) => (
-                <div key={i} className="bg-[#1A1A1E] p-2 rounded-xl border border-white/5 text-center">
-                   <div className={`text-base font-black ${i === 1 ? 'text-[#b8f5a6]' : i === 2 ? 'text-[#FFA116]' : i === 3 ? 'text-[#F2B8B5]' : 'text-[#D0BCFF]'}`}>
-                      {[1, 3, 2, 2][i]}
-                   </div>
-                   <div className="text-[8px] font-black opacity-30 uppercase tracking-tighter">{label}</div>
-                </div>
-             ))}
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 gap-3 mb-4">
-          <div className="bg-[#252529] rounded-[22px] p-4 border border-white/5 flex flex-col items-center">
-             <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center mb-1">
-                <FaCheckCircle className="text-white/20 text-sm" />
-             </div>
-             <div className="text-2xl font-black text-white">0</div>
-             <div className="text-[9px] text-white/30 font-bold uppercase tracking-wider">Today Solved</div>
-          </div>
-          <div className="bg-[#252529] rounded-[22px] p-4 border border-white/5 flex flex-col items-center">
-             <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center mb-1">
-                <FaFire className="text-white/20 text-sm" />
-             </div>
-             <div className="text-2xl font-black text-white">0</div>
-             <div className="text-[9px] text-white/30 font-bold uppercase tracking-wider">Day Streak</div>
-          </div>
-        </div>
-
-        <div className="bg-[#252529] rounded-[22px] p-5 border border-white/5 flex-1 min-h-[90px] flex flex-col justify-between">
-           <div className="flex justify-between items-center mb-2">
-              <span className="text-[9px] font-black text-white/20 uppercase tracking-[0.2em]">Activity Flow</span>
-              <div className="bg-white/5 px-2 py-0.5 rounded-full text-[8px] text-white/20 flex items-center gap-1">
-                 <FaTrophy className="opacity-30" /> 0 Months
-              </div>
-           </div>
-           <div className="flex gap-1 overflow-hidden">
-              {Array.from({length: 22}).map((_, i) => (
-                 <div key={i} className={`w-3 h-3 rounded-sm shrink-0 ${i === 18 || i === 19 ? 'bg-[#b8f5a6]' : 'bg-white/5'}`}></div>
-              ))}
-           </div>
-        </div>
-      </div>
-    )
-  },
-  {
-    id: 'settings',
-    title: 'Settings',
-    description: 'Customize notifications.',
-    content: (
-      <div className="w-full h-full bg-[#1A1A1E] p-8 md:p-10 flex flex-col border border-white/5 text-sm">
-         <div className="flex justify-between items-center mb-8">
-            <div className="flex flex-col gap-1">
-               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30">Connected Repo</span>
-               <span className="text-lg font-black text-[#D0BCFF]">username/Repository name</span>
-            </div>
-            <FaEdit className="text-white/20 hover:text-white transition-colors cursor-pointer" />
-         </div>
-
-         <div className="flex items-center gap-3 opacity-40 mb-8 border-b border-white/5 pb-4">
-            <FaSyncAlt className="text-[11px] animate-spin-slow" />
-            <span className="text-[11px] font-medium italic">Last synced: just now</span>
-         </div>
-
-         <div className="space-y-6 flex-1">
-            <div className="space-y-3">
-               <div className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 ml-1">Daily Reminder</div>
-               <div className="flex gap-2.5">
-                  <div className="flex-1 bg-[#252529] rounded-[16px] border border-white/5 p-4 flex justify-between items-center">
-                     <span className="font-mono text-white/80">21:00</span>
-                     <FaRegClock className="opacity-30" />
-                  </div>
-                  <button className="bg-[#D0BCFF] text-[#381E72] px-6 py-2 rounded-[16px] font-black hover:bg-[#EADDFF] transition-all">Save</button>
-               </div>
-            </div>
-
-            <div className="pt-4 space-y-3">
-               <button className="w-full flex items-center gap-4 text-[#F2B8B5] hover:bg-[#F2B8B5]/5 p-4 rounded-xl transition-all border border-transparent hover:border-[#F2B8B5]/10 group">
-                  <FaTrash className="opacity-30 group-hover:opacity-100 transition-opacity" />
-                  <span className="font-black">Reset App Data</span>
-               </button>
-               <button className="w-full flex items-center gap-4 text-[#F2B8B5] hover:bg-[#F2B8B5]/5 p-4 rounded-xl transition-all border border-transparent hover:border-[#F2B8B5]/10 group">
-                  <FaSignOutAlt className="opacity-30 group-hover:opacity-100 transition-opacity" />
-                  <span className="font-black">Disconnect GitHub</span>
-               </button>
-            </div>
-         </div>
-      </div>
-    )
-  },
-  {
-    id: 'auth',
-    title: 'Authentication',
-    description: 'Secure GitHub link.',
-    content: (
-      <div className="w-full h-full bg-[#1A1A1E] p-8 md:p-10 flex flex-col items-center justify-center border border-white/5 text-center">
-         <div className="w-16 h-16 bg-[#381E72]/30 rounded-3xl border border-[#D0BCFF]/20 flex items-center justify-center mb-6">
-           <FaGithub className="text-3xl text-[#D0BCFF] opacity-80" />
-         </div>
-         <h3 className="text-2xl font-black mb-2 leading-tight">Connect GitHub</h3>
-         <p className="text-[#938F99] text-[13px] mb-8 max-w-[240px] leading-relaxed">Authorize with GitHub to auto-sync your coding solutions.</p>
-         
-         <div className="w-full max-w-[260px] bg-[#252529] rounded-[18px] p-1 flex mb-8 border border-white/5 relative">
-             <div className="flex-1 bg-white/5 text-white/80 rounded-[14px] py-3 font-black text-[10px] uppercase tracking-wider text-center">Quick Login</div>
-             <div className="flex-1 text-white/20 py-3 font-black text-[10px] uppercase tracking-wider text-center">Use Token</div>
-         </div>
-
-         <button className="w-full max-w-[260px] bg-[#D0BCFF] text-[#381E72] py-4 rounded-full font-black text-base flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(208,188,255,0.2)]">
-            <FaGithub className="text-xl" /> Login with GitHub
-         </button>
-         <p className="text-[10px] text-white/20 mt-4 uppercase tracking-[0.2em] font-black italic flex items-center gap-2">
-           <FaLock className="text-[9px]" /> No token needed
-         </p>
-      </div>
-    )
-  },
-  {
-    id: 'setup',
-    title: 'Repo Setup',
-    description: 'Environment creation.',
-    content: (
-      <div className="w-full h-full bg-[#1A1A1E] p-8 md:p-10 flex flex-col border border-white/5 shadow-2xl">
-         <h3 className="text-2xl font-black mb-8 text-white">Repository Setup</h3>
-         <div className="mb-10 bg-white/5 p-6 rounded-[22px] border border-white/5">
-            <p className="text-[#938F99] text-sm">Hello, <span className="text-[#D0BCFF] font-black">username</span>.</p>
-            <p className="text-[#938F99] mt-2 text-sm leading-relaxed">Where should we secure your solutions?</p>
-         </div>
-
-         <div className="space-y-6 flex-1">
-            <div className="space-y-2.5">
-               <div className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 ml-2">Target Repository</div>
-               <div className="w-full bg-[#252529] rounded-[20px] border border-[#D0BCFF]/30 p-5 text-lg font-mono">
-                  Repository name<span className="w-px h-5 bg-[#D0BCFF] animate-pulse ml-0.5 inline-block align-middle"></span>
-               </div>
-            </div>
-            
-            <button className="w-full bg-[#D0BCFF] text-[#381E72] py-5 rounded-full font-black text-lg shadow-[0_10px_30px_rgba(208,188,255,0.2)] mt-auto">
-               Link Existing Repository
-            </button>
-         </div>
-      </div>
-    )
-  }
-];
 
 const SUPPORTED_PLATFORMS = [
   {
@@ -270,40 +82,452 @@ function FAQItem({ faq }) {
   );
 }
 
-function Home() {
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [direction, setDirection] = useState(0);
+function InteractiveDemo() {
+  const [step, setStep] = useState(1);
+  const [isSynced, setIsSynced] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  
+  const handleNextStep = () => {
+    if (step < 5) setStep(step + 1);
+  };
+
+  const handleSync = () => {
+    if (isSynced || isAnimating) return;
+    setIsAnimating(true);
+    setTimeout(() => {
+      setIsSynced(true);
+      setIsAnimating(false);
+    }, 1200);
+  };
+
+  const resetJourney = () => {
+    setStep(1);
+    setIsSynced(false);
+    setIsAnimating(false);
+  };
+
+  const weeks = Array.from({ length: 16 });
+  const days = Array.from({ length: 7 });
 
   const slideVariants = {
-    enter: (direction) => ({
-      x: direction > 0 ? 300 : -300,
-      opacity: 0,
-      scale: 0.9,
-      z: -100
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-      scale: 1,
-      z: 0
-    },
-    exit: (direction) => ({
-      x: direction < 0 ? 300 : -300,
-      opacity: 0,
-      scale: 0.9,
-      z: -100
-    })
+    initial: { opacity: 0, x: 50 },
+    animate: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: -50 }
   };
 
-  const handleNext = () => {
-    setDirection(1);
-    setActiveSlide((prev) => (prev < UI_MOCKS.length - 1 ? prev + 1 : 0));
-  };
+  return (
+    <section id="see-it-in-action" className="py-24 px-6 md:px-12 max-w-7xl mx-auto relative z-10 overflow-hidden border-t border-white/5">
+      <div className="text-center mb-12">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#D0BCFF]/10 border border-[#D0BCFF]/20 text-[#D0BCFF] text-[10px] font-black uppercase tracking-[0.2em] mb-6">
+          <FaGlobe /> The Journey
+        </div>
+        <h2 className="text-3xl md:text-5xl font-black">How AlgoCommit <span className="text-[#b8f5a6]">Works</span>.</h2>
+      </div>
 
-  const handlePrev = () => {
-    setDirection(-1);
-    setActiveSlide((prev) => (prev > 0 ? prev - 1 : UI_MOCKS.length - 1));
-  };
+      {/* Progress Bar */}
+      <div className="max-w-3xl mx-auto mb-10 flex items-center justify-between relative">
+        <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-0.5 bg-white/5 -z-10"></div>
+        <div 
+          className="absolute left-0 top-1/2 -translate-y-1/2 h-0.5 bg-[#D0BCFF] -z-10 transition-all duration-500" 
+          style={{ width: `${((step > 4 ? 4 : step - 1) / 4) * 100}%` }}
+        ></div>
+        {[1, 2, 3, 4, 5].map((s) => (
+          <div 
+            key={s} 
+            className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-black transition-all duration-300 ${
+              step >= s ? 'bg-[#D0BCFF] text-[#381E72] shadow-[0_0_15px_rgba(208,188,255,0.5)]' : 'bg-[#1A1A1E] text-white/30 border border-white/10'
+            }`}
+          >
+            {step > s ? <FaCheck /> : s}
+          </div>
+        ))}
+      </div>
+
+      {/* Fixed Height Container */}
+      <div className="w-full max-w-5xl mx-auto glass rounded-[40px] border border-white/5 p-8 md:p-12 relative overflow-hidden min-h-[650px] flex items-center justify-center">
+        {/* Glow effect */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-[#D0BCFF]/5 blur-[120px] pointer-events-none"></div>
+        
+        <AnimatePresence mode="wait">
+          {/* STEP 1: LOGIN */}
+          {step === 1 && (
+            <motion.div 
+              key="step1"
+              variants={slideVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.3 }}
+              className="w-full max-w-md bg-[#1A1A1E] rounded-3xl border border-white/10 p-10 flex flex-col items-center justify-center text-center shadow-2xl relative z-10"
+            >
+              <div className="w-20 h-20 bg-[#381E72]/30 rounded-[28px] border border-[#D0BCFF]/20 flex items-center justify-center mb-8 shadow-inner">
+                <FaGithub className="text-4xl text-[#D0BCFF] opacity-90" />
+              </div>
+              <h3 className="text-3xl font-black mb-3 leading-tight">Connect GitHub</h3>
+              <p className="text-[#938F99] text-sm mb-10 leading-relaxed px-4">Authorize with GitHub to allow AlgoCommit to automatically push your accepted solutions.</p>
+              
+              <button 
+                onClick={handleNextStep}
+                className="w-full bg-[#D0BCFF] text-[#381E72] py-4 rounded-xl font-black text-lg flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_10px_30px_rgba(208,188,255,0.2)]"
+              >
+                <FaGithub className="text-2xl" /> Login with GitHub
+              </button>
+              <p className="text-[10px] text-white/20 mt-6 uppercase tracking-[0.2em] font-black italic flex items-center gap-2">
+                <FaShieldAlt className="text-[10px]" /> Secure OAuth 2.0
+              </p>
+            </motion.div>
+          )}
+
+          {/* STEP 2: LINK REPO */}
+          {step === 2 && (
+            <motion.div 
+              key="step2"
+              variants={slideVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.3 }}
+              className="w-full max-w-xl bg-[#1A1A1E] rounded-3xl border border-white/10 p-10 shadow-2xl relative z-10"
+            >
+               <div className="flex items-center gap-4 mb-8 pb-6 border-b border-white/5">
+                 <div className="w-12 h-12 rounded-full bg-[#b8f5a6]/10 text-[#b8f5a6] flex items-center justify-center text-xl">
+                   <FaDatabase />
+                 </div>
+                 <div>
+                   <h3 className="text-2xl font-black text-white">Repository Setup</h3>
+                   <p className="text-[#938F99] text-sm mt-1">Where should we save your solutions?</p>
+                 </div>
+               </div>
+
+               <div className="space-y-6 mb-10">
+                  <div className="space-y-3">
+                     <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 ml-1">Select Target Repository</label>
+                     <div className="w-full bg-[#252529] rounded-xl border border-[#D0BCFF]/30 p-5 text-lg font-mono flex justify-between items-center cursor-pointer hover:border-[#D0BCFF]/60 transition-colors">
+                        <span>My-DSA-Journey</span>
+                        <FaChevronDown className="text-white/30 text-sm" />
+                     </div>
+                  </div>
+                  <div className="bg-[#b8f5a6]/5 border border-[#b8f5a6]/10 rounded-xl p-4 flex gap-4 items-start">
+                     <FaCheckCircle className="text-[#b8f5a6] mt-0.5 shrink-0" />
+                     <p className="text-sm text-[#b8f5a6]/80 leading-relaxed">AlgoCommit has access to this repository. All pushed code will be neatly organized into folders automatically.</p>
+                  </div>
+               </div>
+               
+               <button 
+                 onClick={handleNextStep}
+                 className="w-full bg-[#D0BCFF] text-[#381E72] py-4 rounded-xl font-black text-lg shadow-[0_10px_30px_rgba(208,188,255,0.2)] hover:bg-[#EADDFF] transition-all hover:scale-[1.01] active:scale-[0.99]"
+               >
+                  Link Repository & Continue
+               </button>
+            </motion.div>
+          )}
+
+          {/* STEP 3 & 4: SOLVE & SYNC */}
+          {(step === 3 || step === 4) && (
+            <motion.div 
+              key="step34"
+              variants={slideVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.3 }}
+              className="w-full h-full flex flex-col lg:flex-row gap-8 relative z-10"
+            >
+              {/* Left: Code Editor Mock */}
+              <div className="flex-[1.2] bg-[#1A1A1E] rounded-2xl border border-white/10 shadow-2xl overflow-hidden flex flex-col relative z-20">
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5 bg-white/[0.02]">
+                  <div className="w-3 h-3 rounded-full bg-[#F2B8B5]"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#FFA116]"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#b8f5a6]"></div>
+                  <span className="ml-2 text-xs font-mono text-white/40">solution.py</span>
+                </div>
+                <div className="p-6 font-mono text-sm leading-relaxed overflow-x-auto text-[#CAC4D0] flex-1">
+                  <div className="text-[#D0BCFF]">class <span className="text-white">Solution</span>:</div>
+                  <div className="pl-4">
+                    <span className="text-[#F2B8B5]">def</span> <span className="text-[#b8f5a6]">twoSum</span>(self, nums: List[int], target: int) -&gt; List[int]:
+                    <div className="pl-4 text-white/30 italic"># Time Complexity: O(n)</div>
+                    <div className="pl-4 mt-2">seen = {'{}'}</div>
+                    <div className="pl-4">
+                      <span className="text-[#F2B8B5]">for</span> i, num <span className="text-[#F2B8B5]">in</span> enumerate(nums):
+                      <div className="pl-4">
+                        diff = target - num<br/>
+                        <span className="text-[#F2B8B5]">if</span> diff <span className="text-[#F2B8B5]">in</span> seen:<br/>
+                        <div className="pl-4"><span className="text-[#F2B8B5]">return</span> [seen[diff], i]</div>
+                        seen[num] = i
+                      </div>
+                    </div>
+                    <div className="pl-4 mt-2"><span className="text-[#F2B8B5]">return</span> []</div>
+                  </div>
+                </div>
+                <div className="p-4 border-t border-white/5 bg-white/[0.02] flex justify-end">
+                  <button 
+                    onClick={() => {
+                      if(step === 3) handleNextStep();
+                      handleSync();
+                    }}
+                    disabled={isSynced || isAnimating}
+                    className={`px-8 py-3 rounded-xl font-black text-base flex items-center gap-2 transition-all shadow-lg ${
+                      isSynced 
+                        ? 'bg-[#1A1A1E] text-[#b8f5a6] border border-[#b8f5a6]/30 cursor-default'
+                        : isAnimating
+                          ? 'bg-[#D0BCFF]/20 text-[#D0BCFF] border border-[#D0BCFF]/30 cursor-wait'
+                          : 'bg-[#D0BCFF] text-[#381E72] hover:bg-[#EADDFF] shadow-[0_0_20px_rgba(208,188,255,0.3)] hover:scale-105 active:scale-95'
+                    }`}
+                  >
+                    {isSynced ? (
+                      <><FaCheck /> Pushed to GitHub</>
+                    ) : isAnimating ? (
+                      <><FaSyncAlt className="animate-spin" /> Committing...</>
+                    ) : (
+                      <><FaCode /> Submit Solution</>
+                    )}
+                  </button>
+                </div>
+              </div>
+
+              {/* Animation Layer */}
+              <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-30">
+                <AnimatePresence>
+                  {isAnimating && (
+                     <motion.div 
+                       initial={{ opacity: 0, x: -100, y: 50, scale: 0.5 }}
+                       animate={{ 
+                         opacity: [0, 1, 1, 0], 
+                         x: [-100, 0, 150, 300], 
+                         y: [50, 0, -50, -100],
+                         scale: [0.5, 1, 1, 0.5]
+                       }}
+                       transition={{ duration: 1.2, ease: "easeInOut" }}
+                       className="text-5xl text-[#b8f5a6] filter drop-shadow-[0_0_25px_#b8f5a6]"
+                     >
+                        <FaDatabase />
+                     </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Right Side: Folder + Graph */}
+              <div className="flex-1 flex flex-col gap-6 relative z-20">
+                 {/* Folder View Mock */}
+                 <div className="flex-1 bg-[#1A1A1E] rounded-2xl border border-white/10 p-5 shadow-xl font-mono text-[13px] flex flex-col justify-center">
+                   <div className="text-white/40 mb-3 pb-3 border-b border-white/5 uppercase tracking-widest font-bold text-[10px] flex items-center gap-2">
+                     <FaGithub /> My-DSA-Journey
+                   </div>
+                   <div className="space-y-2 text-[#CAC4D0]">
+                      <div className="flex items-center gap-2">
+                         <span className="text-[#FFA116]">📁 LeetCode</span>
+                      </div>
+                      <div className="pl-4 space-y-2 relative before:content-[''] before:absolute before:left-1.5 before:top-0 before:bottom-0 before:w-px before:bg-white/10">
+                         <div className="flex items-center gap-2 relative">
+                            <div className="absolute -left-[11px] top-1/2 w-2 h-px bg-white/10"></div>
+                            <span className="text-[#b8f5a6]">📁 Easy</span>
+                         </div>
+                         {/* Dynamic Folder Appears */}
+                         <AnimatePresence>
+                           {(isSynced || isAnimating) && (
+                             <motion.div 
+                               initial={{ opacity: 0, height: 0, x: -10 }}
+                               animate={{ opacity: 1, height: 'auto', x: 0 }}
+                               transition={{ delay: 0.8 }}
+                               className="pl-4 space-y-1 relative before:content-[''] before:absolute before:left-1.5 before:top-0 before:bottom-2 before:w-px before:bg-white/10"
+                             >
+                               <div className="flex items-center gap-2 relative text-white/90 font-bold">
+                                  <div className="absolute -left-[11px] top-1/2 w-2 h-px bg-white/10"></div>
+                                  📁 0001-Two-Sum
+                               </div>
+                               <div className="pl-4 space-y-1">
+                                  <div className="flex items-center gap-2 text-[#D0BCFF] relative">
+                                    <div className="absolute -left-[11px] top-1/2 w-2 h-px bg-white/10"></div>
+                                    <span className="opacity-80">📜</span> solution.py
+                                  </div>
+                                  <div className="flex items-center gap-2 text-white/50 relative">
+                                    <div className="absolute -left-[11px] top-1/2 w-2 h-px bg-white/10"></div>
+                                    <span className="opacity-80 text-lg leading-none">📄</span> README.md
+                                  </div>
+                               </div>
+                             </motion.div>
+                           )}
+                         </AnimatePresence>
+                      </div>
+                   </div>
+                 </div>
+
+                 {/* GitHub Graph Mock */}
+                 <div className="bg-[#1A1A1E] rounded-2xl border border-white/10 p-5 shadow-xl">
+                    <div className="flex justify-between items-center mb-4 text-[10px] font-black text-white/50 uppercase tracking-[0.2em]">
+                      <span>{isSynced ? '1,024' : '1,023'} Contributions</span>
+                      <span>2026</span>
+                    </div>
+                    
+                    <div className="flex gap-1.5 overflow-hidden justify-end">
+                       {weeks.slice(0, 10).map((_, weekIdx) => (
+                         <div key={weekIdx} className="flex flex-col gap-1.5">
+                            {days.map((_, dayIdx) => {
+                               const isExisting = (weekIdx * 7 + dayIdx) % 11 === 0 || (weekIdx * 7 + dayIdx) % 17 === 0 || (weekIdx * 7 + dayIdx) % 5 === 0;
+                               const isTarget = weekIdx === 9 && dayIdx === 3;
+                               
+                               let bgColor = 'bg-white/5';
+                               if (isExisting && !isTarget) bgColor = 'bg-[#b8f5a6]/40';
+                               
+                               return (
+                                 <motion.div 
+                                   key={dayIdx}
+                                   animate={isTarget && isSynced ? {
+                                     backgroundColor: '#b8f5a6',
+                                     scale: [1, 1.4, 1],
+                                     boxShadow: ['0 0 0px #b8f5a6', '0 0 20px #b8f5a6', '0 0 10px #b8f5a6']
+                                   } : {}}
+                                   transition={{ duration: 0.5, delay: isTarget && isSynced ? 1.0 : 0 }}
+                                   className={`w-3.5 h-3.5 lg:w-4 lg:h-4 rounded-sm ${isTarget && !isSynced ? 'bg-white/10 outline outline-1 outline-white/20' : bgColor}`}
+                                 />
+                               );
+                            })}
+                         </div>
+                       ))}
+                    </div>
+                 </div>
+
+                 {/* Explicit Next Action */}
+                 <AnimatePresence>
+                   {isSynced && (
+                     <motion.div 
+                       initial={{ opacity: 0, height: 0 }}
+                       animate={{ opacity: 1, height: 'auto' }}
+                       className="flex flex-col items-center justify-center mt-2"
+                     >
+                       <FaChevronDown className="text-[#b8f5a6] animate-bounce text-xl drop-shadow-[0_0_10px_#b8f5a6] mb-2" />
+                       <button 
+                         onClick={handleNextStep}
+                         className="bg-gradient-to-r from-[#b8f5a6] to-[#98e586] text-[#1A1A1E] px-8 py-3 rounded-full font-black shadow-[0_0_20px_rgba(184,245,166,0.3)] hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
+                       >
+                         Open Dashboard UI <FaChevronRight className="text-sm" />
+                       </button>
+                     </motion.div>
+                   )}
+                 </AnimatePresence>
+              </div>
+            </motion.div>
+          )}
+
+          {/* STEP 5: DASHBOARD STATS */}
+          {step === 5 && (
+            <motion.div 
+              key="step5"
+              variants={slideVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.3 }}
+              className="w-full max-w-xl bg-[#1D1B22] rounded-3xl border border-white/5 p-6 shadow-2xl relative z-10 flex flex-col gap-4 font-mono text-sm"
+            >
+               {/* Header */}
+               <div className="flex items-center justify-between mb-2">
+                 <div className="flex items-center gap-3">
+                   <div className="w-8 h-8 flex items-center justify-center relative">
+                     <img src="/Myicon.png" alt="logo" className="w-full h-full object-contain drop-shadow-md z-10" onError={(e) => e.target.style.display='none'} />
+                     <FaShieldAlt className="text-white absolute opacity-20 z-0 text-xs" />
+                   </div>
+                   <h3 className="text-xl font-bold text-white tracking-wide font-sans">AlgoCommit</h3>
+                 </div>
+                 <div className="flex items-center gap-4 text-white/70">
+                   <FaGithub className="text-xl hover:text-white cursor-pointer" />
+                   <FaCog className="text-xl hover:text-white cursor-pointer" />
+                 </div>
+               </div>
+               
+               <div className="h-px w-full bg-white/5 mb-2"></div>
+
+               {/* Top Stats & Platform */}
+               <div className="bg-[#242229] rounded-2xl p-5 border border-white/5">
+                 <div className="flex justify-between items-center mb-6">
+                   <div className="flex items-center gap-3">
+                     <div className="w-6 h-6 rounded-full border border-[#D0BCFF]/30 flex items-center justify-center bg-[#1D1B22]">
+                       <div className="w-2 h-2 rounded-full bg-[#D0BCFF]"></div>
+                     </div>
+                     <div className="flex items-center gap-2 bg-[#1D1B22] px-3 py-1.5 rounded-lg border border-white/5">
+                       <FaTwitter className="text-white/50 hover:text-[#1DA1F2] cursor-pointer" />
+                       <div className="w-px h-3 bg-white/10"></div>
+                       <FaLinkedin className="text-white/50 hover:text-[#0A66C2] cursor-pointer" />
+                     </div>
+                   </div>
+                   <div className="flex items-center gap-2 font-bold text-white/90">
+                     <FaShieldAlt className="text-white/50" /> 1,024 Total Solved
+                   </div>
+                 </div>
+
+                 <div className="grid grid-cols-4 gap-3">
+                   <motion.div whileHover={{ scale: 1.05 }} className="bg-[#1A1124] border border-[#D0BCFF]/20 rounded-xl p-3 flex flex-col items-center justify-center gap-1 aspect-square cursor-default">
+                     <span className="text-xl font-bold text-white">42</span>
+                     <span className="text-[10px] text-[#D0BCFF]">Basic</span>
+                   </motion.div>
+                   <motion.div whileHover={{ scale: 1.05 }} className="bg-[#0D2114] border border-[#b8f5a6]/20 rounded-xl p-3 flex flex-col items-center justify-center gap-1 aspect-square cursor-default">
+                     <span className="text-xl font-bold text-white">450</span>
+                     <span className="text-[10px] text-[#b8f5a6]">Easy</span>
+                   </motion.div>
+                   <motion.div whileHover={{ scale: 1.05 }} className="bg-[#261E08] border border-[#FFA116]/20 rounded-xl p-3 flex flex-col items-center justify-center gap-1 aspect-square cursor-default">
+                     <span className="text-xl font-bold text-white">400</span>
+                     <span className="text-[10px] text-[#FFA116]">Medium</span>
+                   </motion.div>
+                   <motion.div whileHover={{ scale: 1.05 }} className="bg-[#2B1113] border border-[#F2B8B5]/20 rounded-xl p-3 flex flex-col items-center justify-center gap-1 aspect-square cursor-default">
+                     <span className="text-xl font-bold text-white">132</span>
+                     <span className="text-[10px] text-[#F2B8B5]">Hard</span>
+                   </motion.div>
+                 </div>
+               </div>
+
+               {/* Middle Stats */}
+               <div className="grid grid-cols-2 gap-4">
+                 <motion.div whileHover={{ y: -5 }} className="bg-[#242229] rounded-2xl p-6 border border-white/5 flex flex-col items-center justify-center gap-3 relative cursor-default hover:border-white/20 transition-colors">
+                   <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/50">
+                     <FaCheck />
+                   </div>
+                   <div className="text-3xl font-bold text-white">1</div>
+                   <div className="text-xs text-white/60 font-bold tracking-wider">Today Solved</div>
+                 </motion.div>
+                 <motion.div whileHover={{ y: -5 }} className="bg-[#242229] rounded-2xl p-6 border border-white/5 flex flex-col items-center justify-center gap-3 relative cursor-default hover:border-[#FFA116]/30 transition-colors">
+                   <div className="w-10 h-10 rounded-full bg-[#FFA116]/10 flex items-center justify-center text-[#FFA116]">
+                     <FaFire />
+                   </div>
+                   <div className="text-3xl font-bold text-white">18</div>
+                   <div className="text-xs text-white/60 font-bold tracking-wider mb-1">Day Streak</div>
+                   <div className="text-[10px] text-white/30 absolute bottom-3">Highest: 45</div>
+                 </motion.div>
+               </div>
+
+               {/* Activity Flow */}
+               <div className="bg-[#242229] rounded-2xl p-5 border border-white/5">
+                 <div className="flex justify-between items-center mb-4">
+                   <div className="flex items-center gap-2 text-xs font-bold text-white/50 tracking-wider">
+                     ACTIVITY FLOW <FaSyncAlt className="text-[10px]" />
+                   </div>
+                   <div className="flex items-center gap-2 text-[10px] bg-white/5 px-3 py-1.5 rounded-full text-white/40 border border-white/5">
+                     <FaTrophy /> 6 Months
+                   </div>
+                 </div>
+                 <div className="flex gap-1 overflow-hidden">
+                   {Array.from({length: 30}).map((_, i) => (
+                     <div key={i} className={`w-3 h-5 rounded-[2px] ${i === 29 ? 'bg-[#b8f5a6]' : i % 7 === 0 ? 'bg-[#b8f5a6]/40' : 'bg-white/5'}`}></div>
+                   ))}
+                 </div>
+               </div>
+
+               <div className="mt-2 flex justify-center">
+                 <button 
+                   onClick={resetJourney}
+                   className="text-[#D0BCFF] text-xs uppercase tracking-widest font-black hover:underline opacity-80 hover:opacity-100 flex items-center gap-2"
+                 >
+                    <FaHistory /> Restart Journey
+                 </button>
+               </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </section>
+  );
+}
+
+function Home() {
 
   const features = useMemo(() => [
     { title: 'Multi-Platform', desc: 'Seamlessly sync from LeetCode, GFG, and Codeforces.', icon: <FaGlobe /> },
@@ -459,114 +683,96 @@ function Home() {
         </div>
       </section>
 
-      {/* See It In Action (UI Carousel) */}
-      <section id="see-it-in-action" className="py-24 px-6 md:px-12 max-w-7xl mx-auto relative z-10 overflow-hidden">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-5xl font-black">See it in <span className="text-[#D0BCFF]">Action</span>.</h2>
-        </div>
-
-        <div className="relative">
-          {/* Dynamic Content Header */}
-          <div className="text-center mb-2 min-h-[40px] flex flex-col justify-center">
-             <AnimatePresence mode="wait">
-               <motion.div
-                 key={activeSlide}
-                 initial={{ opacity: 0, y: 10 }}
-                 animate={{ opacity: 1, y: 0 }}
-                 exit={{ opacity: 0, y: -10 }}
-                 transition={{ duration: 0.3 }}
-                 className="space-y-3"
-               >
-                 <h3 className="text-2xl md:text-3xl font-black text-[#D0BCFF] tracking-tight">{UI_MOCKS[activeSlide].title}</h3>
-                 <p className="text-[#938F99] text-base md:text-lg max-w-xl mx-auto leading-relaxed px-4">
-                   {UI_MOCKS[activeSlide].description}
-                 </p>
-               </motion.div>
-             </AnimatePresence>
-          </div>
-
-          {/* Carousel Viewport with Navigation */}
-          <div className="relative flex items-center justify-center gap-0 md:gap-8 h-[550px]">
-            {/* Left Ghost Card */}
-            <div className="hidden lg:block absolute left-[20%] scale-[0.75] opacity-20 blur-[1px] -translate-x-1/2 pointer-events-none z-0">
-               <div className="w-[370px] aspect-[4.5/6.5] bg-[#1A1A1E] rounded-[44px] border border-white/5 overflow-hidden">
-                  {UI_MOCKS[(activeSlide - 1 + UI_MOCKS.length) % UI_MOCKS.length].content}
-               </div>
+      {/* Clean Repo Preview Section */}
+      <section className="py-24 px-6 md:px-12 max-w-6xl mx-auto relative z-10 border-t border-white/5">
+        <div className="flex flex-col md:flex-row items-center gap-16">
+          <div className="flex-1 space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#b8f5a6]/10 border border-[#b8f5a6]/20 text-[#b8f5a6] text-[10px] font-black uppercase tracking-[0.2em] mb-2">
+              <FaCheck /> Auto-Organized
             </div>
-
-            {/* Left Arrow */}
-            <button 
-              onClick={handlePrev}
-              className="absolute left-0 lg:left-4 w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#1A1A1E] border border-white/10 flex items-center justify-center text-[#D0BCFF] text-xl md:text-2xl hover:bg-white/10 hover:border-[#D0BCFF]/30 transition-all active:scale-90 z-30 shadow-2xl group"
-              aria-label="Previous Slide"
-            >
-              <FaChevronLeft className="group-hover:-translate-x-0.5 transition-transform" />
-            </button>
-
-            {/* Main Display Viewport */}
-            <div className="relative z-20">
-              <div className="w-[300px] sm:w-[370px] aspect-[4.5/6.5] relative rounded-[44px] overflow-hidden border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8)] bg-[#1A1A1E] transition-transform duration-500 hover:scale-[1.01]">
-                <AnimatePresence initial={false} custom={direction}>
-                  <motion.div
-                    key={activeSlide}
-                    custom={direction}
-                    variants={slideVariants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    transition={{
-                      x: { type: "spring", stiffness: 300, damping: 30 },
-                      opacity: { duration: 0.2 },
-                      scale: { duration: 0.4 }
-                    }}
-                    className="w-full h-full absolute inset-0"
-                  >
-                    {UI_MOCKS[activeSlide].content}
-                  </motion.div>
-                </AnimatePresence>
+            <h2 className="text-3xl md:text-5xl font-black leading-tight">
+              A repository you can <span className="text-[#b8f5a6]">actually show off.</span>
+            </h2>
+            <p className="text-[#938F99] text-lg leading-relaxed">
+              No more messy, unstructured commits. AlgoCommit automatically categorizes your solutions by platform and difficulty, creating a pristine, professional folder structure that hiring managers will love to see.
+            </p>
+          </div>
+          
+          <div className="flex-1 w-full max-w-md">
+            <div className="bg-[#1A1A1E] border border-white/10 rounded-2xl p-6 shadow-2xl font-mono text-sm overflow-hidden relative group hover:border-white/20 transition-all">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#D0BCFF] to-[#b8f5a6] opacity-70 group-hover:opacity-100 transition-opacity"></div>
+              <div className="flex items-center gap-2 mb-4 pb-4 border-b border-white/5 text-white/50">
+                <FaDatabase className="text-sm" /> 
+                <span className="font-bold tracking-wide">My-DSA-Repo</span>
               </div>
               
-              {/* Decorative Glow */}
-              <div className="absolute inset-0 bg-[#D0BCFF]/10 blur-[100px] -z-10 rounded-full opacity-40"></div>
+              <div className="space-y-3 text-[#CAC4D0]">
+                {/* LeetCode Folder */}
+                <div className="flex items-center gap-2 group/folder cursor-default">
+                  <FaChevronDown className="text-[10px] text-white/30 group-hover/folder:text-white/70 transition-colors" />
+                  <span className="text-[#FFA116] font-bold">📁 LeetCode</span>
+                </div>
+                
+                {/* LeetCode -> Easy */}
+                <div className="pl-6 space-y-2 relative before:content-[''] before:absolute before:left-2 before:top-0 before:bottom-0 before:w-px before:bg-white/10">
+                  <div className="flex items-center gap-2 group/folder cursor-default relative">
+                    <div className="absolute -left-[17px] top-1/2 w-3 h-px bg-white/10"></div>
+                    <FaChevronDown className="text-[10px] text-white/30 group-hover/folder:text-white/70 transition-colors" />
+                    <span className="text-[#b8f5a6] font-bold">📁 Easy</span>
+                  </div>
+                  
+                  {/* LeetCode -> Easy -> Question Folder */}
+                  <div className="pl-6 space-y-1 relative before:content-[''] before:absolute before:left-2 before:top-0 before:bottom-0 before:w-px before:bg-white/10">
+                    <div className="flex items-center gap-2 group/folder cursor-default relative py-1">
+                      <div className="absolute -left-[17px] top-1/2 w-3 h-px bg-white/10"></div>
+                      <FaChevronDown className="text-[10px] text-white/30 group-hover/folder:text-white/70 transition-colors" />
+                      <span className="text-white/90 font-medium">📁 0001-Two-Sum</span>
+                    </div>
+                    
+                    {/* Files inside Question Folder */}
+                    <div className="pl-6 space-y-1 relative before:content-[''] before:absolute before:left-2 before:top-0 before:bottom-4 before:w-px before:bg-white/10">
+                      <div className="flex items-center gap-2 hover:bg-white/10 px-2 py-1 -ml-2 rounded transition-colors cursor-pointer relative">
+                        <div className="absolute -left-[17px] top-1/2 w-3 h-px bg-white/10"></div>
+                        <span className="opacity-80">📜</span> <span className="text-[#D0BCFF]">solution.java</span>
+                      </div>
+                      <div className="flex items-center gap-2 hover:bg-white/10 px-2 py-1 -ml-2 rounded transition-colors cursor-pointer relative">
+                        <div className="absolute -left-[17px] top-1/2 w-3 h-px bg-white/10"></div>
+                        <span className="opacity-80 text-lg leading-none">📄</span> <span className="text-white/60">question.md</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Another Question Folder (Collapsed) */}
+                  <div className="pl-6 space-y-1 relative before:content-[''] before:absolute before:left-2 before:top-0 before:bottom-4 before:w-px before:bg-white/10 mt-2">
+                    <div className="flex items-center gap-2 group/folder cursor-default relative py-1">
+                      <div className="absolute -left-[17px] top-1/2 w-3 h-px bg-white/10"></div>
+                      <FaChevronRight className="text-[10px] text-white/30 group-hover/folder:text-white/70 transition-colors" />
+                      <span className="text-white/90 font-medium">📁 0020-Valid-Parentheses</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* LeetCode -> Hard (Collapsed) */}
+                <div className="pl-6 space-y-2 mt-2 relative before:content-[''] before:absolute before:left-2 before:top-0 before:bottom-6 before:w-px before:bg-white/10">
+                  <div className="flex items-center gap-2 group/folder cursor-default relative">
+                    <div className="absolute -left-[17px] top-1/2 w-3 h-px bg-white/10"></div>
+                    <FaChevronRight className="text-[10px] text-white/30 group-hover/folder:text-white/70 transition-colors" />
+                    <span className="text-[#F2B8B5] font-bold">📁 Hard</span>
+                  </div>
+                </div>
+
+                {/* GeeksForGeeks Folder */}
+                <div className="flex items-center gap-2 group/folder cursor-default mt-4">
+                  <FaChevronRight className="text-[10px] text-white/30 group-hover/folder:text-white/70 transition-colors" />
+                  <span className="text-[#2F8D46] font-bold">📁 GeeksForGeeks</span>
+                </div>
+              </div>
             </div>
-
-            {/* Right Arrow */}
-            <button 
-              onClick={handleNext}
-              className="absolute right-0 lg:right-4 w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#1A1A1E] border border-white/10 flex items-center justify-center text-[#D0BCFF] text-xl md:text-2xl hover:bg-white/10 hover:border-[#D0BCFF]/30 transition-all active:scale-90 z-30 shadow-2xl group"
-              aria-label="Next Slide"
-            >
-              <FaChevronRight className="group-hover:translate-x-0.5 transition-transform" />
-            </button>
-
-            {/* Right Ghost Card */}
-            <div className="hidden lg:block absolute right-[20%] scale-[0.75] opacity-20 blur-[1px] translate-x-1/2 pointer-events-none z-0">
-               <div className="w-[370px] aspect-[4.5/6.5] bg-[#1A1A1E] rounded-[44px] border border-white/5 overflow-hidden">
-                  {UI_MOCKS[(activeSlide + 1) % UI_MOCKS.length].content}
-               </div>
-            </div>
-          </div>
-
-          {/* Progress Indicators */}
-          <div className="flex justify-center gap-3 mt-8">
-            {UI_MOCKS.map((_, idx) => (
-              <button 
-                key={idx}
-                onClick={() => {
-                  setDirection(idx > activeSlide ? 1 : -1);
-                  setActiveSlide(idx);
-                }}
-                className={`h-1.5 rounded-full transition-all duration-500 ${
-                  activeSlide === idx 
-                  ? 'w-10 bg-[#D0BCFF] shadow-[0_0_10px_rgba(208,188,255,0.5)]' 
-                  : 'w-2.5 bg-white/10 hover:bg-white/20'
-                }`}
-                aria-label={`Go to slide ${idx + 1}`}
-              />
-            ))}
           </div>
         </div>
       </section>
+
+      <InteractiveDemo />
 
       {/* FAQ Section */}
       <section id="faq" className="py-24 px-6 md:px-12 max-w-4xl mx-auto relative z-10">
