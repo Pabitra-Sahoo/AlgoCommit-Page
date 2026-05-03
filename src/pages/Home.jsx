@@ -4,8 +4,9 @@ import {
   FaGithub, FaSyncAlt, FaShieldAlt, FaChartLine, FaTerminal, FaCode, 
   FaCheckCircle, FaLaptopCode, FaGlobe, FaChevronRight, FaLock, FaChevronLeft,
   FaFire, FaTrophy, FaCog, FaHistory, FaCheck, FaTrash, FaSignOutAlt, FaRocket, 
-  FaEdit, FaRegClock, FaLayerGroup, FaSearch, FaTwitter, FaLinkedin, FaBug, FaDatabase, FaCommentAlt
+  FaEdit, FaRegClock, FaLayerGroup, FaSearch, FaTwitter, FaLinkedin, FaBug, FaDatabase, FaCommentAlt, FaShareAlt, FaChevronDown, FaQuestionCircle
 } from 'react-icons/fa';
+import { SiLeetcode, SiGeeksforgeeks, SiCodeforces } from 'react-icons/si';
 import { CHROME_STORE_URL, GITHUB_REPO_URL } from '../constants/links';
 
 const UI_MOCKS = [
@@ -197,6 +198,78 @@ const UI_MOCKS = [
   }
 ];
 
+const SUPPORTED_PLATFORMS = [
+  {
+    name: 'LeetCode',
+    color: '#FFA116',
+    icon: <SiLeetcode className="text-[28px] text-[#FFA116]" />
+  },
+  {
+    name: 'Codeforces',
+    color: '#1F8ACB',
+    icon: <SiCodeforces className="text-[28px] text-[#1F8ACB]" />
+  },
+  {
+    name: 'GeeksforGeeks',
+    color: '#2F8D46',
+    icon: <SiGeeksforgeeks className="text-[28px] text-[#2F8D46]" />
+  }
+];
+
+const EXTENDED_PLATFORMS = [...SUPPORTED_PLATFORMS, ...SUPPORTED_PLATFORMS, ...SUPPORTED_PLATFORMS, ...SUPPORTED_PLATFORMS];
+
+const FAQS = [
+  {
+    question: "Is my GitHub token secure?",
+    answer: "Yes, absolutely. AlgoCommit stores your GitHub token locally in your browser's secure storage. We have no backend servers, and all API calls are made directly from your browser to GitHub."
+  },
+  {
+    question: "Does it support private repositories?",
+    answer: "Yes! You can choose any repository you own, public or private. As long as your GitHub token has the necessary permissions, AlgoCommit will sync your solutions securely."
+  },
+  {
+    question: "What happens if I submit multiple solutions to the same problem?",
+    answer: "AlgoCommit smartly handles multiple submissions. Depending on your configuration, it will either update the existing solution file or append a new version, preserving all your attempts without cluttering your repository."
+  },
+  {
+    question: "Is AlgoCommit free to use?",
+    answer: "Yes, AlgoCommit is 100% free and open-source. We built this tool for the community to help developers automate their proof-of-work seamlessly."
+  }
+];
+
+function FAQItem({ faq }) {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <div className="border border-white/5 rounded-[20px] bg-[#1A1A1E]/80 overflow-hidden mb-4 transition-colors hover:border-[#D0BCFF]/20 shadow-lg">
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full px-6 py-5 md:py-6 flex items-center justify-between text-left focus:outline-none cursor-pointer"
+      >
+        <span className="font-bold text-lg md:text-xl text-white/90 pr-4">{faq.question}</span>
+        <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
+           <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0">
+             <FaChevronDown className="text-[#D0BCFF] opacity-70 text-sm" />
+           </div>
+        </motion.div>
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <div className="px-6 pb-6 text-[#938F99] leading-relaxed md:text-lg">
+              {faq.answer}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -236,10 +309,10 @@ function Home() {
     { title: 'Multi-Platform', desc: 'Seamlessly sync from LeetCode, GFG, and Codeforces.', icon: <FaGlobe /> },
     { title: 'Cross-Platform', desc: 'Access your extension across different devices. Your data is never lost as we use GitHub as the backend and database.', icon: <FaLaptopCode /> },
     { title: 'Structured Folders', desc: 'Auto-organized repositories by difficulty and platform.', icon: <FaLayerGroup /> },
-    { title: 'Question Tracking', desc: 'Automated problem metadata and description capture.', icon: <FaSearch /> },
+    { title: 'Atomic Commits & Tracking', desc: 'Clean, descriptive pushes with automated problem metadata and description capture.', icon: <FaDatabase /> },
     { title: 'Progress Tracking', desc: 'Minimal dashboard for real-time streak and solve tracking.', icon: <FaChartLine /> },
     { title: 'Engineering Rank', desc: 'Grow your rank from Intern to CEO as you solve more.', icon: <FaTrophy /> },
-    { title: 'Atomic Commits', desc: 'Clean, descriptive pushes for every single solution.', icon: <FaDatabase /> },
+    { title: 'Quick Social Share', desc: 'Share your daily stats and green squares directly to LinkedIn and X.', icon: <FaShareAlt /> },
     { title: 'Security & Privacy', desc: 'Your code and tokens are handled securely with OAuth and direct GitHub API calls. No third-party servers see your code.', icon: <FaShieldAlt /> }
   ], []);
 
@@ -335,6 +408,27 @@ function Home() {
             </div>
           </div>
         </motion.div>
+      </section>
+
+      {/* Supported Platforms Marquee */}
+      <section className="py-8 border-y border-white/5 bg-[#1A1A1E]/30 relative overflow-hidden flex flex-col items-center">
+         <div className="text-[10px] text-white/30 font-black uppercase tracking-[0.3em] mb-6">Supported Platforms</div>
+         
+         {/* Marquee Container */}
+         <div className="w-full relative flex overflow-hidden">
+            {/* Gradient Masks for smooth fade on edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-[#141218] to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-[#141218] to-transparent z-10 pointer-events-none"></div>
+            
+            <div className="animate-marquee flex gap-12 md:gap-24 items-center">
+               {EXTENDED_PLATFORMS.map((platform, i) => (
+                  <div key={i} className="flex items-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-default grayscale hover:grayscale-0">
+                     {platform.icon}
+                     <span className="text-xl font-bold tracking-tight text-[#CAC4D0] whitespace-nowrap">{platform.name}</span>
+                  </div>
+               ))}
+            </div>
+         </div>
       </section>
 
       {/* Features Heading & Section */}
@@ -471,6 +565,22 @@ function Home() {
               />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="py-24 px-6 md:px-12 max-w-4xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#D0BCFF]/10 border border-[#D0BCFF]/20 text-[#D0BCFF] text-[10px] font-black uppercase tracking-[0.2em] mb-6">
+              <FaQuestionCircle /> FAQ
+           </div>
+           <h2 className="text-3xl md:text-5xl font-black mb-4">Got Questions?</h2>
+           <p className="text-lg text-[#938F99]">Everything you need to know about AlgoCommit.</p>
+        </div>
+        <div className="flex flex-col">
+          {FAQS.map((faq, index) => (
+            <FAQItem key={index} faq={faq} />
+          ))}
         </div>
       </section>
 
