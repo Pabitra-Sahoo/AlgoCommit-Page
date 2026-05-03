@@ -121,7 +121,7 @@ function InteractiveDemo() {
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#D0BCFF]/10 border border-[#D0BCFF]/20 text-[#D0BCFF] text-[10px] font-black uppercase tracking-[0.2em] mb-6">
           <FaGlobe /> The Journey
         </div>
-        <h2 className="text-3xl md:text-5xl font-black">How AlgoCommit <span className="text-[#b8f5a6]">Works</span>.</h2>
+        <h2 className="text-3xl md:text-5xl font-black">See It In <span className="text-[#b8f5a6]">Action</span>.</h2>
       </div>
 
       {/* Progress Bar */}
