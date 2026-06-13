@@ -87,10 +87,10 @@ function Docs() {
               Syncode is fully open-source. Found a bug on a platform or have a feature request? Join our building process on GitHub.
             </p>
             <div className="flex flex-col sm:flex-row gap-5 justify-center">
-               <a href="https://github.com/Pabitra-Sahoo/Syncode/issues/new?template=bug_report.yml&title=Bug:%20" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-10 py-5 rounded-2xl bg-[#F2B8B5]/10 text-[#F2B8B5] border border-[#F2B8B5]/20 hover:bg-[#F2B8B5]/20 transition-all font-black text-lg uppercase tracking-tight active:scale-95">
+               <a href="https://github.com/Pabitra-Sahoo/AlgoCommit-Page/issues/new?template=bug_report.yml&title=Bug:%20" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-10 py-5 rounded-2xl bg-[#F2B8B5]/10 text-[#F2B8B5] border border-[#F2B8B5]/20 hover:bg-[#F2B8B5]/20 transition-all font-black text-lg uppercase tracking-tight active:scale-95">
                   <FaBug /> Report a Bug
                </a>
-               <a href="https://github.com/Pabitra-Sahoo/Syncode/issues/new?template=feature_request.yml&title=Feature:%20" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-10 py-5 rounded-2xl bg-[#D0BCFF]/10 text-[#D0BCFF] border border-[#D0BCFF]/20 hover:bg-[#D0BCFF]/20 transition-all font-black text-lg uppercase tracking-tight active:scale-95">
+               <a href="https://github.com/Pabitra-Sahoo/AlgoCommit-Page/issues/new?template=feature_request.yml&title=Feature:%20" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-10 py-5 rounded-2xl bg-[#D0BCFF]/10 text-[#D0BCFF] border border-[#D0BCFF]/20 hover:bg-[#D0BCFF]/20 transition-all font-black text-lg uppercase tracking-tight active:scale-95">
                   <FaRocket /> Feedback
                </a>
             </div>

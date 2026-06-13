@@ -945,10 +945,10 @@ function Home() {
                Syncode is a community project. Found a bug on a platform? Have a feature request? Let's build it together.
             </p>
             <div className="flex flex-col sm:flex-row gap-5 justify-center">
-               <a href="https://github.com/Pabitra-Sahoo/Syncode/issues/new?template=bug_report.yml&title=Bug:%20" target="_blank" rel="noreferrer" className="bg-[#F2B8B5] text-[#3D1414] px-10 py-5 rounded-full font-black text-lg hover:shadow-lg transition-all active:scale-95 flex items-center justify-center gap-3">
+               <a href="https://github.com/Pabitra-Sahoo/AlgoCommit-Page/issues/new?template=bug_report.yml&title=Bug:%20" target="_blank" rel="noreferrer" className="bg-[#F2B8B5] text-[#3D1414] px-10 py-5 rounded-full font-black text-lg hover:shadow-lg transition-all active:scale-95 flex items-center justify-center gap-3">
                   <FaBug /> Report a Bug
                </a>
-               <a href="https://github.com/Pabitra-Sahoo/Syncode/issues/new?template=feature_request.yml&title=Feature:%20" target="_blank" rel="noreferrer" className="bg-white/5 border border-white/10 text-white px-10 py-5 rounded-full font-black text-lg hover:bg-white/10 transition-all active:scale-95 flex items-center justify-center gap-3">
+               <a href="https://github.com/Pabitra-Sahoo/AlgoCommit-Page/issues/new?template=feature_request.yml&title=Feature:%20" target="_blank" rel="noreferrer" className="bg-white/5 border border-white/10 text-white px-10 py-5 rounded-full font-black text-lg hover:bg-white/10 transition-all active:scale-95 flex items-center justify-center gap-3">
                   <FaRocket /> Feedback
                </a>
             </div>

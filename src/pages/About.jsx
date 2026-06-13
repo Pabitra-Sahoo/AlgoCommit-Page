@@ -89,10 +89,10 @@ function About() {
 
             {idx === 1 && (
               <div className="flex justify-end gap-3 mt-8">
-                <a href="https://github.com/Pabitra-Sahoo/Syncode/issues/new?template=bug_report.yml&title=Bug:%20" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#F2B8B5]/10 text-[#F2B8B5] border border-[#F2B8B5]/20 hover:bg-[#F2B8B5]/20 transition-all text-xs font-black uppercase tracking-tight">
+                <a href="https://github.com/Pabitra-Sahoo/AlgoCommit-Page/issues/new?template=bug_report.yml&title=Bug:%20" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#F2B8B5]/10 text-[#F2B8B5] border border-[#F2B8B5]/20 hover:bg-[#F2B8B5]/20 transition-all text-xs font-black uppercase tracking-tight">
                    <FaBug className="text-[10px]" /> Bug
                 </a>
-                <a href="https://github.com/Pabitra-Sahoo/Syncode/issues/new?template=feature_request.yml&title=Feature:%20" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#D0BCFF]/10 text-[#D0BCFF] border border-[#D0BCFF]/20 hover:bg-[#D0BCFF]/20 transition-all text-xs font-black uppercase tracking-tight">
+                <a href="https://github.com/Pabitra-Sahoo/AlgoCommit-Page/issues/new?template=feature_request.yml&title=Feature:%20" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#D0BCFF]/10 text-[#D0BCFF] border border-[#D0BCFF]/20 hover:bg-[#D0BCFF]/20 transition-all text-xs font-black uppercase tracking-tight">
                    <FaRocket className="text-[10px]" /> Feedback
                 </a>
               </div>
