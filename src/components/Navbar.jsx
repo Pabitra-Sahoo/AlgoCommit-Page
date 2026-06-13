@@ -25,8 +25,11 @@ function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full glass z-50 border-b border-white/5 py-4 px-6 md:px-12 flex justify-between items-center transition-all duration-300">
       <Link to="/" className="flex items-center gap-3">
-        <img src="/Myicon.png" alt="AlgoCommit Logo" className="w-8 h-8 drop-shadow-lg" />
-        <span className="text-xl font-bold tracking-tight text-[#E6E1E5]">AlgoCommit</span>
+        <img src="/Myicon.png" alt="Syncode Logo" className="w-8 h-8 drop-shadow-lg" />
+        <div className="flex flex-col">
+          <span className="text-xl font-bold tracking-tight text-[#E6E1E5] leading-none">Syncode</span>
+          <span className="text-[10px] text-[#938F99] font-medium leading-tight">formerly AlgoCommit</span>
+        </div>
       </Link>
       
       <div className="hidden md:flex gap-8 text-[15px] font-medium text-[#CAC4D0]">

@@ -9,7 +9,7 @@ function Docs() {
       icon: <FaRocket />,
       color: "text-[#D0BCFF]",
       content: [
-        "Download AlgoCommit from the Chrome Web Store.",
+        "Download Syncode from the Chrome Web Store.",
         "Click the extension icon and 'Login with GitHub'.",
         "Enter a name for your repository (e.g., 'my-dsa-solves').",
         "Click 'Create & Link'. You're ready to go!"
@@ -21,7 +21,7 @@ function Docs() {
       color: "text-[#b8f5a6]",
       content: [
         "Navigate to any problem on LeetCode, GFG, or Codeforces.",
-        "Once your submission is marked as 'Accepted', AlgoCommit intercepts the result.",
+        "Once your submission is marked as 'Accepted', Syncode intercepts the result.",
         "We fetch your source code and the problem description locally in the browser.",
         "An atomic commit is pushed to your GitHub repo including code, stats, and a custom README."
       ]
@@ -31,7 +31,7 @@ function Docs() {
       icon: <FaUserSecret />,
       color: "text-[#F2B8B5]",
       content: [
-        "AlgoCommit uses a stateless serverless proxy for OAuth token exchange.",
+        "Syncode uses a stateless serverless proxy for OAuth token exchange.",
         "Your GitHub Access Token is stored safely in chrome.storage.local.",
         "We never see your code—the sync happens entirely within your browser.",
         "No middleman databases are used to store your submissions."
@@ -50,7 +50,7 @@ function Docs() {
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#D0BCFF]/10 border border-[#D0BCFF]/20 text-[#D0BCFF] text-[10px] font-black uppercase tracking-[0.2em] mb-12">
            <FaBook /> Documentation
         </div>
-        <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">Get Started <br/> with <span className="text-[#D0BCFF]">AlgoCommit</span>.</h1>
+        <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">Get Started <br/> with <span className="text-[#D0BCFF]">Syncode</span>.</h1>
       </div>
 
       <div className="space-y-10">
@@ -84,13 +84,13 @@ function Docs() {
          <div className="relative">
             <h3 className="text-2xl md:text-3xl font-black mb-4">Have a technical issue?</h3>
             <p className="text-[#938F99] text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
-              AlgoCommit is fully open-source. Found a bug on a platform or have a feature request? Join our building process on GitHub.
+              Syncode is fully open-source. Found a bug on a platform or have a feature request? Join our building process on GitHub.
             </p>
             <div className="flex flex-col sm:flex-row gap-5 justify-center">
-               <a href="https://github.com/Pabitra-Sahoo/AlgoCommit/issues/new?template=bug_report.yml&title=Bug:%20" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-10 py-5 rounded-2xl bg-[#F2B8B5]/10 text-[#F2B8B5] border border-[#F2B8B5]/20 hover:bg-[#F2B8B5]/20 transition-all font-black text-lg uppercase tracking-tight active:scale-95">
+               <a href="https://github.com/Pabitra-Sahoo/Syncode/issues/new?template=bug_report.yml&title=Bug:%20" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-10 py-5 rounded-2xl bg-[#F2B8B5]/10 text-[#F2B8B5] border border-[#F2B8B5]/20 hover:bg-[#F2B8B5]/20 transition-all font-black text-lg uppercase tracking-tight active:scale-95">
                   <FaBug /> Report a Bug
                </a>
-               <a href="https://github.com/Pabitra-Sahoo/AlgoCommit/issues/new?template=feature_request.yml&title=Feature:%20" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-10 py-5 rounded-2xl bg-[#D0BCFF]/10 text-[#D0BCFF] border border-[#D0BCFF]/20 hover:bg-[#D0BCFF]/20 transition-all font-black text-lg uppercase tracking-tight active:scale-95">
+               <a href="https://github.com/Pabitra-Sahoo/Syncode/issues/new?template=feature_request.yml&title=Feature:%20" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-10 py-5 rounded-2xl bg-[#D0BCFF]/10 text-[#D0BCFF] border border-[#D0BCFF]/20 hover:bg-[#D0BCFF]/20 transition-all font-black text-lg uppercase tracking-tight active:scale-95">
                   <FaRocket /> Feedback
                </a>
             </div>

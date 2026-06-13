@@ -7,8 +7,8 @@ function About() {
   const communityCards = [
     {
       name: "Community First",
-      title: "100% Free & Open Source",
-      description: "AlgoCommit is built for developers, by developers. No subscription, no paywalls, no tracking.",
+      title: "100% Free & Private",
+      description: "Syncode is built for developers, by developers. No subscription, no paywalls, no tracking.",
       icon: <FaHeart className="text-[#F2B8B5]" />,
       features: [
         "Sync with LeetCode, GFG, & Codeforces",
@@ -54,7 +54,7 @@ function About() {
               <FaCode className="text-8xl" />
            </div>
            <p className="text-xl md:text-2xl text-[#CAC4D0] leading-relaxed italic font-medium">
-             "AlgoCommit was born from a simple frustration: there wasn't an easy way to save and organize DSA questions; it was not easy to track and had high complexity. So we built one."
+             "Syncode was born from a simple frustration: there wasn't an easy way to save and organize DSA questions; it was not easy to track and had high complexity. So we built one."
            </p>
         </div>
       </div>
@@ -81,7 +81,7 @@ function About() {
 
             {idx === 0 && (
               <div className="flex justify-end mt-8 transition-transform active:scale-95">
-                <a href="https://github.com/Pabitra-Sahoo/AlgoCommit" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#F2B8B5]/10 text-[#F2B8B5] border border-[#F2B8B5]/30 hover:bg-[#F2B8B5]/20 transition-all text-xs font-black uppercase tracking-tight shadow-lg shadow-[#F2B8B5]/5">
+                <a href="https://github.com/Pabitra-Sahoo/Syncode" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#F2B8B5]/10 text-[#F2B8B5] border border-[#F2B8B5]/30 hover:bg-[#F2B8B5]/20 transition-all text-xs font-black uppercase tracking-tight shadow-lg shadow-[#F2B8B5]/5">
                    <FaStar className="text-[12px] text-yellow-400" /> Star our Project
                 </a>
               </div>
@@ -89,10 +89,10 @@ function About() {
 
             {idx === 1 && (
               <div className="flex justify-end gap-3 mt-8">
-                <a href="https://github.com/Pabitra-Sahoo/AlgoCommit/issues/new?template=bug_report.yml&title=Bug:%20" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#F2B8B5]/10 text-[#F2B8B5] border border-[#F2B8B5]/20 hover:bg-[#F2B8B5]/20 transition-all text-xs font-black uppercase tracking-tight">
+                <a href="https://github.com/Pabitra-Sahoo/Syncode/issues/new?template=bug_report.yml&title=Bug:%20" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#F2B8B5]/10 text-[#F2B8B5] border border-[#F2B8B5]/20 hover:bg-[#F2B8B5]/20 transition-all text-xs font-black uppercase tracking-tight">
                    <FaBug className="text-[10px]" /> Bug
                 </a>
-                <a href="https://github.com/Pabitra-Sahoo/AlgoCommit/issues/new?template=feature_request.yml&title=Feature:%20" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#D0BCFF]/10 text-[#D0BCFF] border border-[#D0BCFF]/20 hover:bg-[#D0BCFF]/20 transition-all text-xs font-black uppercase tracking-tight">
+                <a href="https://github.com/Pabitra-Sahoo/Syncode/issues/new?template=feature_request.yml&title=Feature:%20" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#D0BCFF]/10 text-[#D0BCFF] border border-[#D0BCFF]/20 hover:bg-[#D0BCFF]/20 transition-all text-xs font-black uppercase tracking-tight">
                    <FaRocket className="text-[10px]" /> Feedback
                 </a>
               </div>
@@ -117,7 +117,7 @@ function About() {
               <h3 className="text-2xl font-black">Pabitra Sahoo</h3>
               <p className="text-[#D0BCFF] font-bold mb-6">Full Stack Developer | DSA Enthusiast</p>
               <p className="text-[#938F99] max-w-xl mx-auto leading-relaxed mb-10 text-lg">
-                Passionate about creating tools that empower developers. AlgoCommit is my journey of turning a personal pain point into a community-driven solution.
+                Passionate about creating tools that empower developers. Syncode is my journey of turning a personal pain point into a community-driven solution.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                  <a href="https://github.com/Pabitra-Sahoo" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-8 py-3 rounded-2xl bg-white/5 hover:bg-white/10 transition-all border border-white/5 font-black text-[#CAC4D0] active:scale-95 shadow-sm">

@@ -10,7 +10,10 @@ function Footer() {
         <div className="flex flex-col gap-4">
           <Link to="/" className="flex items-center gap-3 group">
             <img src="/Myicon.png" alt="Logo" className="w-8 h-8 grayscale group-hover:grayscale-0 transition-all opacity-70 group-hover:opacity-100" />
-            <span className="text-xl font-black tracking-tight text-[#E6E1E5]">AlgoCommit</span>
+            <div className="flex flex-col">
+              <span className="text-xl font-black tracking-tight text-[#E6E1E5] leading-none">Syncode</span>
+              <span className="text-[10px] text-[#938F99] font-medium leading-tight group-hover:text-[#D0BCFF] transition-colors">formerly AlgoCommit</span>
+            </div>
           </Link>
           <p className="text-[#938F99] text-sm max-w-xs leading-relaxed">
             Automating the bridge between your competitive programming and your professional portfolio.
@@ -25,16 +28,14 @@ function Footer() {
            </div>
            <div className="flex flex-col gap-4">
               <span className="text-[#E6E1E5] font-black text-xs uppercase tracking-widest">Community</span>
-              <a href="https://github.com/Pabitra-Sahoo/AlgoCommit/issues/new?template=bug_report.yml&title=Bug:%20" target="_blank" rel="noreferrer" className="text-[#938F99] hover:text-[#F2B8B5] transition-colors text-sm">Report Bug</a>
-              <a href="https://github.com/Pabitra-Sahoo/AlgoCommit/issues/new?template=feature_request.yml&title=Feature:%20" target="_blank" rel="noreferrer" className="text-[#938F99] hover:text-[#D0BCFF] transition-colors text-sm">Feedback</a>
+              <a href={GMAIL_URL} target="_blank" rel="noreferrer" className="text-[#938F99] hover:text-[#F2B8B5] transition-colors text-sm">Report Bug</a>
+              <a href={GMAIL_URL} target="_blank" rel="noreferrer" className="text-[#938F99] hover:text-[#D0BCFF] transition-colors text-sm">Feedback</a>
            </div>
         </div>
 
         <div className="flex flex-col items-start md:items-end gap-6 border-t border-white/5 pt-10 md:pt-0 md:border-0 w-full md:w-auto">
            <div className="flex gap-5">
-              <a href={GITHUB_REPO_URL} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#938F99] hover:text-white hover:bg-white/10 transition-all">
-                 <FaGithub className="text-lg" />
-              </a>
+
               <a href={X_URL} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#938F99] hover:text-[#D0BCFF] hover:bg-[#D0BCFF]/10 transition-all">
                  <FaTwitter className="text-lg" />
               </a>
@@ -47,7 +48,7 @@ function Footer() {
                 Privacy First: Direct GitHub sync. No intermediate servers.
               </p>
               <p className="text-[#938F99] text-[12px] font-medium opacity-60">
-                © 2026 Pabitra Sahoo. Released under Apache License 2.0.
+                © 2026 Pabitra Sahoo. All rights reserved.
               </p>
            </div>
         </div>
