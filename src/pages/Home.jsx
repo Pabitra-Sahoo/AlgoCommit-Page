@@ -4,7 +4,7 @@ import {
   FaGithub, FaSyncAlt, FaShieldAlt, FaChartLine, FaTerminal, FaCode, 
   FaCheckCircle, FaLaptopCode, FaGlobe, FaChevronRight, FaLock, FaChevronLeft,
   FaFire, FaTrophy, FaCog, FaHistory, FaCheck, FaTrash, FaSignOutAlt, FaRocket, 
-  FaEdit, FaRegClock, FaLayerGroup, FaSearch, FaTwitter, FaLinkedin, FaBug, FaDatabase, FaCommentAlt, FaShareAlt, FaChevronDown, FaQuestionCircle
+  FaEdit, FaRegClock, FaLayerGroup, FaSearch, FaTwitter, FaLinkedin, FaBug, FaDatabase, FaCommentAlt, FaShareAlt, FaChevronDown, FaQuestionCircle, FaChrome
 } from 'react-icons/fa';
 import { SiLeetcode, SiGeeksforgeeks, SiCodeforces } from 'react-icons/si';
 import { CHROME_STORE_URL, GITHUB_REPO_URL } from '../constants/links';
@@ -681,7 +681,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="w-full bg-[#141218] text-[#E6E1E5]">
+    <div className="w-full text-[#E6E1E5] bg-transparent">
       {/* Hero Section */}
       <section id="home" className="pt-28 pb-20 px-6 md:px-12 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 relative z-10">
         <motion.div 
@@ -706,7 +706,8 @@ function Home() {
             Automatically capture your solutions from LeetCode, GeeksForGeeks, & Codeforces. Build your commit graph, and track your streak.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
-            <a href={CHROME_STORE_URL} target="_blank" rel="noreferrer" className="bg-[#D0BCFF] text-[#381E72] px-8 py-4 rounded-full font-black text-lg shadow-[0_0_30px_rgba(208,188,255,0.25)] hover:scale-[1.02] transition-transform active:scale-[0.98] cursor-pointer inline-flex items-center justify-center">
+            <a href={CHROME_STORE_URL} target="_blank" rel="noreferrer" className="bg-[#D0BCFF] text-[#381E72] px-8 py-4 rounded-full font-black text-lg hover:scale-[1.02] transition-transform active:scale-[0.98] cursor-pointer inline-flex items-center justify-center gap-3">
+              <FaChrome className="text-[26px]" />
               Add to Browser
             </a>
             <a href="#features" className="bg-white/5 px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all flex items-center justify-center gap-3 border border-white/5 backdrop-blur-md">

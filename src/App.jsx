@@ -27,15 +27,48 @@ function ScrollToHash() {
   return null;
 }
 
+function Spotlight() {
+  const [mousePosition, setMousePosition] = React.useState({ x: -1000, y: -1000 });
+
+  React.useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY,
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
+  return (
+    <div
+      className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300"
+      style={{
+        background: `radial-gradient(800px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(208,188,255,0.07), transparent 40%)`,
+      }}
+    />
+  );
+}
+
 function App() {
   return (
     <Router>
       <ScrollToHash />
       <div className="min-h-screen bg-[#141218] text-[#E6E1E5] font-sans selection:bg-[#D0BCFF]/30 flex flex-col relative overflow-hidden">
-        {/* Global Background Orbs */}
-        <div className="fixed top-[-20%] left-[-10%] w-[600px] h-[600px] bg-[#D0BCFF] opacity-15 rounded-full blur-[120px] pointer-events-none z-0"></div>
-        <div className="fixed bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-[#F2B8B5] opacity-10 rounded-full blur-[120px] pointer-events-none z-0"></div>
-        <div className="fixed top-[40%] left-[50%] w-[400px] h-[400px] bg-[#b8f5a6] opacity-5 rounded-full blur-[150px] pointer-events-none z-0 -translate-x-1/2"></div>
+        <Spotlight />
+        
+        {/* Subtle Grid Background */}
+        <div 
+          className="fixed inset-0 pointer-events-none z-0 opacity-40" 
+          style={{
+            backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+          }}
+        ></div>
         
         <Navbar />
         
